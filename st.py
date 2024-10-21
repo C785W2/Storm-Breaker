@@ -6,7 +6,7 @@ from modules import banner,control
 check.check_update()
 
 
-PORT = 2525 
+PORT = 80 
 
 while True:
     banner.banner()
