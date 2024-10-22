@@ -1,5 +1,5 @@
 from subprocess import getoutput
-import requests,json
+import requests, json
 from modules import control
 
 def dependency():
@@ -8,8 +8,8 @@ def dependency():
         exit("please install php \n command > sudo apt install php")
 
     try:
-        from colorama import Fore,Style
-        import requests,psutil
+        from colorama import Fore, Style
+        import requests, psutil
 
     except ImportError:
         exit("please install library \n command > python3 -m pip install -r requirements.txt")
@@ -24,16 +24,16 @@ def check_started():
         with open("storm-web/Settings.json", "w") as jsonFile:
             json.dump(data, jsonFile)
 
-
-
     elif data["is_start"] == True:
         control.kill_php_proc()
 
 
-
-
 def check_update():
-    http = requests.get("https://raw.githubusercontent.com/ultrasecurity/Storm-Breaker/main/Settings.json").text
+    headers = {
+         "User-Agent": "CustomAgent"  # Add this header to skip ngrok warning
+    }
+
+    http = requests.get("https://raw.githubusercontent.com/ultrasecurity/Storm-Breaker/main/Settings.json", headers=headers).text
     
     http_json = json.loads(http)
 
