@@ -30,7 +30,7 @@ def check_started():
 
 def check_update():
     headers = {
-         "User-Agent": "CustomAgent"  # Add this header to skip ngrok warning
+         "User-Agent": "MyCustomUserAgent"  # Add this header to skip ngrok warning
     }
 
     http = requests.get("https://raw.githubusercontent.com/ultrasecurity/Storm-Breaker/main/Settings.json", headers=headers).text
